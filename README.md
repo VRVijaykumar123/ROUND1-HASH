@@ -23,93 +23,80 @@ Instructions: Implement a manual count and comparison logic to find the majority
 ## PROGRAM:
 C program: 
 ```
-#include <stdio.h> 
-int findCandidate(int arr[], int size)
-{ 
-    int candidate = arr[0];  
-    int count = 1;           
-    for (int i = 1; i < size; i++)
-      { 
-        if (arr[i] == candidate) { 
+#include <stdio.h>
 
-            count++;  
 
-        } else { 
+int findCandidate(int arr[], int size) {
+    int candidate = arr[0];
+    int count = 1;
 
-            count--; 
 
-        } 
+    for (int i = 1; i < size; i++) {
+        if (arr[i] == candidate) {
+            count++;
+        } else {
+            count--;
+        }
 
-  
 
-        if (count == 0) { 
+        if (count == 0) {
+            candidate = arr[i];
+            count = 1;
+        }
+    }
+    return candidate;
+}
 
-            candidate = arr[i]; 
 
-            count = 1;  
+int isMajority(int arr[], int size, int candidate) {
+    int count = 0;
 
-        } 
 
-    } 
-    return candidate; 
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == candidate) {
+            count++;
+        }
+    }
 
-} 
-int isMajority(int arr[], int size, int candidate) { 
 
-    int count = 0; 
+    return (count > size / 2);
+}
 
-    for (int i = 0; i < size; i++) { 
 
-        if (arr[i] == candidate) { 
+void findMajorityElement(int arr[], int size) {
+    int candidate = findCandidate(arr, size);
 
-            count++; 
+    if (isMajority(arr, size, candidate)) {
+        printf("The majority element is: %d\n", candidate);
+    } else {
+        printf("No majority element found.\n");
+    }
+}
 
-        } 
 
-    } 
-    return (count > size / 2); 
-} 
-void findMajorityElement(int arr[], int size) { 
-    int candidate = findCandidate(arr, size); 
-    if (isMajority(arr, size, candidate)) { 
+int main() {
+    // Test cases
+    int arr1[] = {3, 3, 4, 2, 4, 4, 2, 4, 4};
+    int arr2[] = {1, 1, 2, 1, 3, 5, 1};
+    int arr3[] = {6, 6, 7, 8, 6, 6, 6};
 
-        printf("The majority element is: %d\n", candidate); 
+    int size1 = sizeof(arr1) / sizeof(arr1[0]);
+    int size2 = sizeof(arr2) / sizeof(arr2[0]);
+    int size3 = sizeof(arr3) / sizeof(arr3[0]);
 
-    } else { 
 
-        printf("No majority element found.\n"); 
-
-    } 
-
-} 
-int main() { 
-
-    int arr1[] = {3, 3, 4, 2, 4, 4, 2, 4, 4};  
-
-    int arr2[] = {1, 1, 2, 1, 3, 5, 1};      
-
-    int arr3[] = {6, 6, 7, 8, 6, 6, 6};     
-    int size1 = sizeof(arr1) / sizeof(arr1[0]); 
-
-    int size2 = sizeof(arr2) / sizeof(arr2[0]);  
-
-    int size3 = sizeof(arr3) / sizeof(arr3[0]);  
-
-    printf("For the first array:\n"); 
-
+    printf("For the first array:\n");
     findMajorityElement(arr1, size1);
 
     printf("\nFor the second array:\n");
-
     findMajorityElement(arr2, size2);
- 
-    printf("\nFor the third array:\n");
 
+    printf("\nFor the third array:\n");
     findMajorityElement(arr3, size3);
 
-    return 0; 
+    return 0;
+}
 
-} 
 ```
  ## OUTPUT:
 
