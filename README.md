@@ -1,11 +1,10 @@
 # ROUND1-HASH
 
-                                                      ![ROUND -SELFIE](https://github.com/user-attachments/assets/187c8505-2002-489a-a18d-287b0c3e7193)
-# NAME: VIJAY KUMAR V R                                                                                                                                                                          
-# COLLEGE NAME: SAVEETHA ENGINEERING COLLEGE 
-
-# DEPARTMENT: B.E(CSE) 
-
+```
+NAME: VIJAY KUMAR V R                
+COLLEGE NAME: SAVEETHA ENGINEERING COLLEGE 
+DEPARTMENT: B.E(CSE) 
+```
 # First Challenge for Hash Agile Internship/Freshers Drive 
 
 # ROUND 1: Problem statement: 
